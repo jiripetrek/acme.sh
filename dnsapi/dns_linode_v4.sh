@@ -130,7 +130,7 @@ _get_root() {
   i=2
   p=1
 
-  if _rest GET; then
+  if _rest GET "?page_size=500"; then
     response="$(echo "$response" | tr -d "\n" | tr '{' "|" | sed 's/|/&{/g' | tr "|" "\n")"
     while true; do
       h=$(printf "%s" "$domain" | cut -d . -f $i-100)
